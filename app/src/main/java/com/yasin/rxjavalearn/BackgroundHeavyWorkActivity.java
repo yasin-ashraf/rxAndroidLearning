@@ -18,6 +18,8 @@ public class BackgroundHeavyWorkActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_background);
+        //TODO : get the photos from Gallery and set on rv
 
         DisposableObserver<String> disposableObserver = getHeavyTaskObserver();
         getHeavyTaskObservable()
