@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -51,7 +52,7 @@ class BackgroundHeavyWorkActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_background)
         rv_photos.setHasFixedSize(true)
-        rv_photos.layoutManager = GridLayoutManager(this,3)
+        rv_photos.layoutManager = StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.HORIZONTAL)
         val listOfUri = mutableListOf<String>()
         photosAdapter = PhotosAdapter(listOfUri)
         rv_photos.adapter = photosAdapter
