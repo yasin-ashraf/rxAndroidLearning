@@ -1,13 +1,16 @@
 package com.yasin.rxjavalearn
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
+import java.lang.Exception
 
-class PhotosAdapter(private val photos: List<String>) : RecyclerView.Adapter<PhotosAdapter.PhotosViewHolder>() {
+class PhotosAdapter(private val photos: MutableList<String>) : RecyclerView.Adapter<PhotosAdapter.PhotosViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotosViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_photo_item,parent,false)
@@ -18,11 +21,26 @@ class PhotosAdapter(private val photos: List<String>) : RecyclerView.Adapter<Pho
         return photos.size
     }
 
+    fun addPhotos(list: List<String>) {
+        val lastPosition = photos.size
+        photos.addAll(list)
+        notifyItemRangeInserted(lastPosition,list.size)
+    }
+
     override fun onBindViewHolder(holder: PhotosViewHolder, position: Int) {
         val uri : String = photos[position]
-        Picasso.get().load(uri)
+        Picasso.get().load("file://$uri")
                 .error(R.mipmap.ic_launcher)
-                .into(holder.image)
+                .into(holder.image, object : Callback{
+                    override fun onSuccess() {
+                        Log.d("Picasso", "Success")
+                    }
+
+                    override fun onError(e: Exception?) {
+                        Log.e("Picasso Error",e.toString())
+                    }
+
+                })
     }
 
     class PhotosViewHolder(view: View) : RecyclerView.ViewHolder(view){

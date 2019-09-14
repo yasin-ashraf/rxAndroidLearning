@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.activity_background.*
 
 class BackgroundHeavyWorkActivity : AppCompatActivity() {
 
+    private lateinit var photosAdapter: PhotosAdapter
     private val compositeDisposable = CompositeDisposable()
     private val REQUEST_PERMISSIONS = 100
 
@@ -33,9 +34,7 @@ class BackgroundHeavyWorkActivity : AppCompatActivity() {
             }
 
             override fun onNext(t: List<String>) {
-                val photosAdapter = PhotosAdapter(t)
-                rv_photos.adapter = photosAdapter
-                photosAdapter.notifyDataSetChanged()
+                photosAdapter.addPhotos(t)
                 Log.e("OnNext",t.toString())
             }
 
@@ -51,7 +50,9 @@ class BackgroundHeavyWorkActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_background)
         rv_photos.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
-
+        val listOfUri = mutableListOf<String>()
+        photosAdapter = PhotosAdapter(listOfUri)
+        rv_photos.adapter = photosAdapter
         if(checkStoragePermission()){
             subscribeTask()
         }
