@@ -21,10 +21,9 @@ class PhotosAdapter(private val photos: MutableList<String>) : RecyclerView.Adap
         return photos.size
     }
 
-    fun addPhotos(list: List<String>) {
-        val lastPosition = photos.size
-        photos.addAll(list)
-        notifyItemRangeInserted(lastPosition,list.size)
+    fun addPhotos(string: String) {
+        photos.add(string)
+        notifyItemInserted(photos.size - 1)
     }
 
     override fun onBindViewHolder(holder: PhotosViewHolder, position: Int) {
