@@ -1,4 +1,4 @@
-package com.yasin.rxjavalearn
+package com.yasin.rxjavalearn.BackgroundHeavyWorkWithRx
 
 import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.app.Activity
@@ -12,15 +12,14 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.yasin.rxjavalearn.R
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_background.*
-import java.util.concurrent.TimeUnit
 
 class BackgroundHeavyWorkActivity : AppCompatActivity() {
 

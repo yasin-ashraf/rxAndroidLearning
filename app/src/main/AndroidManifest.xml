@@ -20,8 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BackgroundHeavyWorkActivity" />
+        <activity android:name=".BackgroundHeavyWorkWithRx.BackgroundHeavyWorkActivity" />
         <activity android:name=".BasicsActivity" />
+        <activity android:name=".NetworkCallWithRx.NetworkingActivity" />
     </application>
 
 </manifest>
