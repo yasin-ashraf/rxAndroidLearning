@@ -8,10 +8,71 @@
     tools:context=".ScrollingActivity"
     tools:showIn="@layout/activity_scrolling">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/background_work"
+            app:layout_constraintBottom_toBottomOf="@id/background_work"
+            android:src="@mipmap/ic_launcher_foreground"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:id="@+id/background_work"
+            app:layout_constraintStart_toEndOf="@id/iv_1"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_margin="@dimen/text_margin"
+            android:textSize="@dimen/large_text_size"
+            android:text="@string/background_heavy_work"/>
+
+        <ImageView
+            android:id="@+id/iv_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/network"
+            app:layout_constraintBottom_toBottomOf="@id/network"
+            android:src="@mipmap/ic_launcher_foreground"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:id="@+id/network"
+            app:layout_constraintStart_toEndOf="@id/iv_2"
+            app:layout_constraintTop_toBottomOf="@id/iv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_margin="@dimen/text_margin"
+            android:textSize="@dimen/large_text_size"
+            android:text="Network"/>
+
+        <ImageView
+            android:id="@+id/iv_3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/nested_network"
+            app:layout_constraintBottom_toBottomOf="@id/nested_network"
+            android:src="@mipmap/ic_launcher_foreground"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:id="@+id/nested_network"
+            app:layout_constraintStart_toEndOf="@id/iv_3"
+            app:layout_constraintTop_toBottomOf="@id/iv_2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_margin="@dimen/text_margin"
+            android:textSize="@dimen/large_text_size"
+            android:text="Nested Network"/>
+
+    </android.support.constraint.ConstraintLayout>
+
 
 </androidx.core.widget.NestedScrollView>
