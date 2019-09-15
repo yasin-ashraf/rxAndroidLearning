@@ -1,11 +1,12 @@
-package com.yasin.rxjavalearn.networkCallWithRx
+package com.yasin.rxjavalearn.nestedFlatMap
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yasin.rxjavalearn.Network.ApiUtils
 import com.yasin.rxjavalearn.R
+import com.yasin.rxjavalearn.networkCallWithRx.User
+import com.yasin.rxjavalearn.networkCallWithRx.UsersAdapter
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -13,10 +14,10 @@ import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_network.*
 
-class NetworkingActivity : AppCompatActivity() {
+class NestedFlatMapActivity : AppCompatActivity() {
 
-    private lateinit var usersAdapter: UsersAdapter
     private val compositeDisposable = CompositeDisposable()
+    private lateinit var usersAdapter: UsersAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,38 +26,36 @@ class NetworkingActivity : AppCompatActivity() {
         val listOfUri = mutableListOf<User>()
         usersAdapter = UsersAdapter(listOfUri)
         rv_photos_network.adapter = usersAdapter
-        getPhotos()
+        getPostsOfUser()
     }
 
-    private fun getPhotos() {
-        val disposableObserver = getUserObserver
+    private fun getPostsOfUser() {
+        val disposableObserver = postsObserver
         ApiUtils.getServices().users
-                .flatMap { t -> Observable.fromIterable(t) }
+                .map { users -> users[0] }
+                .flatMap { user -> getPosts(user.id) }
+                .flatMap { posts -> Observable.fromIterable(posts) }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(disposableObserver)
-        compositeDisposable.add(disposableObserver)
     }
 
-    private val getUserObserver : DisposableObserver<User>
-    get() = object : DisposableObserver<User>() {
-        override fun onComplete() {
-            Log.d("Observer", "OnComplete : Completed")
-        }
+    private fun getPosts(userId: Int) : Observable<List<Post>> {
+        return ApiUtils.getServices().getPosts(userId)
+    }
 
-        override fun onNext(t: User) {
-            Log.d("Network Observer","OnNext : ${t.name}")
-            usersAdapter.addUser(t)
+   private val postsObserver : DisposableObserver<Post>
+    get() = object : DisposableObserver<Post>() {
+        override fun onNext(t: Post) {
+
         }
 
         override fun onError(e: Throwable) {
-            Log.e("NetworkWithRx", e.toString())
+
         }
 
-    }
+        override fun onComplete() {
 
-    override fun onDestroy() {
-        super.onDestroy()
-        compositeDisposable.dispose()
+        }
     }
 }

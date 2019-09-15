@@ -25,6 +25,7 @@
         <activity android:name=".BackgroundHeavyWorkWithRx.BackgroundHeavyWorkActivity" />
         <activity android:name=".BasicsActivity" />
         <activity android:name=".networkCallWithRx.NetworkingActivity" />
+        <activity android:name=".nestedFlatMap.NestedFlatMapActivity" />
     </application>
 
 </manifest>
