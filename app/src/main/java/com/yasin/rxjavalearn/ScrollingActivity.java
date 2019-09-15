@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yasin.rxjavalearn.BackgroundHeavyWorkWithRx.BackgroundHeavyWorkActivity;
+import com.yasin.rxjavalearn.nestedFlatMap.NestedFlatMapActivity;
 import com.yasin.rxjavalearn.networkCallWithRx.NetworkingActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,7 +48,7 @@ public class ScrollingActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            startActivity(new Intent(this, NetworkingActivity.class));
+            startActivity(new Intent(this, NestedFlatMapActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);
