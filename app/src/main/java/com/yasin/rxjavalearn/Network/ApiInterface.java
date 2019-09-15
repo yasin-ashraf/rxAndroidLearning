@@ -1,22 +1,23 @@
 package com.yasin.rxjavalearn.Network;
 
-import com.yasin.rxjavalearn.NetworkCallWithRx.Photo;
+import com.yasin.rxjavalearn.networkCallWithRx.Photo;
+import com.yasin.rxjavalearn.networkCallWithRx.User;
 
 import java.util.List;
-import java.util.Map;
 
+import io.reactivex.Observable;
 import retrofit2.Call;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.HEAD;
-import retrofit2.http.POST;
 import retrofit2.http.Url;
 
 public interface ApiInterface {
 
-    @FormUrlEncoded
-    @POST("/photos")
-    Call<List<Photo>> getPhotos();
+    @GET("albums/1/photos/")
+    Observable<List<Photo>> getPhotos();
+
+    @GET("users/")
+    Observable<List<User>> getUsers();
 
     @HEAD()
     Call<Void> checkIfImageExists(@Url String url);

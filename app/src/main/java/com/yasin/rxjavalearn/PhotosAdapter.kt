@@ -1,4 +1,4 @@
-package com.yasin.rxjavalearn.BackgroundHeavyWorkWithRx
+package com.yasin.rxjavalearn
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import com.yasin.rxjavalearn.R
 import java.lang.Exception
 
 class PhotosAdapter(private val photos: MutableList<String>) : RecyclerView.Adapter<PhotosAdapter.PhotosViewHolder>() {

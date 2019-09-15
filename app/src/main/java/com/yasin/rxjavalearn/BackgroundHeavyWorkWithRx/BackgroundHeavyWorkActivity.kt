@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.yasin.rxjavalearn.PhotosAdapter
 import com.yasin.rxjavalearn.R
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers

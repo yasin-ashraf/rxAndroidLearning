@@ -3,6 +3,7 @@
     package="com.yasin.rxjavalearn">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,13 +17,14 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".BackgroundHeavyWorkWithRx.BackgroundHeavyWorkActivity" />
         <activity android:name=".BasicsActivity" />
-        <activity android:name=".NetworkCallWithRx.NetworkingActivity" />
+        <activity android:name=".networkCallWithRx.NetworkingActivity" />
     </application>
 
 </manifest>

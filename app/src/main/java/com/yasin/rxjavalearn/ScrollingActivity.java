@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yasin.rxjavalearn.BackgroundHeavyWorkWithRx.BackgroundHeavyWorkActivity;
+import com.yasin.rxjavalearn.networkCallWithRx.NetworkingActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -28,8 +29,6 @@ public class ScrollingActivity extends AppCompatActivity {
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(view -> startActivity(new Intent(this, BackgroundHeavyWorkActivity.class)));
-
-        basic();
     }
 
     @Override
@@ -48,6 +47,7 @@ public class ScrollingActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this, NetworkingActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

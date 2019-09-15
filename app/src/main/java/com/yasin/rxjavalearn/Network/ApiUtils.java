@@ -6,7 +6,7 @@ package com.yasin.rxjavalearn.Network;
 
 public class ApiUtils {
 
-    private static final String BASE_URL = "'https://jsonplaceholder.typicode.com/";
+    private static final String BASE_URL = "https://jsonplaceholder.typicode.com/";
 
     public static ApiInterface getServices() {
         return RetrofitClient.getRetrofitClient(BASE_URL).create(ApiInterface.class);

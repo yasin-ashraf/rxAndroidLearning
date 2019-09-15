@@ -1,4 +1,4 @@
-package com.yasin.rxjavalearn.NetworkCallWithRx
+package com.yasin.rxjavalearn.networkCallWithRx
 
 import com.google.gson.annotations.SerializedName
 
