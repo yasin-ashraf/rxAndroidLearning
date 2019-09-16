@@ -47,13 +47,15 @@ class BackgroundHeavyWorkActivity : AppCompatActivity() {
     private val heavyTaskObservable: Observable<String>
         get() = Observable.just(getAllImages())
                 .flatMap { t -> Observable.fromIterable(t) }
-                .map { uri -> "file://$uri" }
+                .filter { uri -> !uri.contains(" ") } // filter operator to remove uri containing space
+                .map { uri -> "file://$uri" } // map operator to emit each uri appended with "file://"
+                .take(10) // take operator to take only 10 images
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_background)
         rv_photos.setHasFixedSize(true)
-        rv_photos.layoutManager = StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.HORIZONTAL)
+        rv_photos.layoutManager = StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL)
         val listOfUri = mutableListOf<String>()
         photosAdapter = PhotosAdapter(listOfUri)
         rv_photos.adapter = photosAdapter
