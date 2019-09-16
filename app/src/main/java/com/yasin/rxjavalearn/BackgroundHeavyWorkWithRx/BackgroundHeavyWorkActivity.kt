@@ -47,6 +47,7 @@ class BackgroundHeavyWorkActivity : AppCompatActivity() {
     private val heavyTaskObservable: Observable<String>
         get() = Observable.just(getAllImages())
                 .flatMap { t -> Observable.fromIterable(t) }
+                .map { uri -> "file://$uri" }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

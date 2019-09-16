@@ -28,7 +28,7 @@ class PhotosAdapter(private val photos: MutableList<String>) : RecyclerView.Adap
 
     override fun onBindViewHolder(holder: PhotosViewHolder, position: Int) {
         val uri : String = photos[position]
-        Picasso.get().load("file://$uri")
+        Picasso.get().load(uri)
                 .error(R.mipmap.ic_launcher)
                 .into(holder.image, object : Callback{
                     override fun onSuccess() {
