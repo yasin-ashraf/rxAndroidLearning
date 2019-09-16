@@ -1,4 +1,4 @@
-package com.yasin.rxjavalearn.Network;
+package com.yasin.rxjavalearn.network;
 
 /**
  * Created by im_yasinashraf started on 13/7/17.

@@ -4,15 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.yasin.rxjavalearn.BackgroundHeavyWorkWithRx.BackgroundHeavyWorkActivity
+import com.yasin.rxjavalearn.backgroundHeavyWorkWithRx.BackgroundHeavyWorkActivity
 import com.yasin.rxjavalearn.nestedFlatMap.NestedFlatMapActivity
 import com.yasin.rxjavalearn.networkCallWithRx.NetworkingActivity
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import io.reactivex.Observable
-import io.reactivex.disposables.Disposable
-import io.reactivex.functions.Consumer
 import io.reactivex.schedulers.Schedulers
 
 import android.util.Log

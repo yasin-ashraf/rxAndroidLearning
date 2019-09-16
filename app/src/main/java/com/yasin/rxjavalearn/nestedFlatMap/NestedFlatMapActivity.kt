@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.yasin.rxjavalearn.Network.ApiUtils
+import com.yasin.rxjavalearn.network.ApiUtils
 import com.yasin.rxjavalearn.R
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers

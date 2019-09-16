@@ -1,4 +1,4 @@
-package com.yasin.rxjavalearn.Network
+package com.yasin.rxjavalearn.network
 
 import com.yasin.rxjavalearn.nestedFlatMap.Post
 import com.yasin.rxjavalearn.networkCallWithRx.Photo

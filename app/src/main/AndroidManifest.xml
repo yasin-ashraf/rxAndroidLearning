@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BackgroundHeavyWorkWithRx.BackgroundHeavyWorkActivity" />
+        <activity android:name=".backgroundHeavyWorkWithRx.BackgroundHeavyWorkActivity" />
         <activity android:name=".BasicsActivity" />
         <activity android:name=".networkCallWithRx.NetworkingActivity" />
         <activity android:name=".nestedFlatMap.NestedFlatMapActivity" />

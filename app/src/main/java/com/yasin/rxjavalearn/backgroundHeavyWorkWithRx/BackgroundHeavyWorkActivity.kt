@@ -1,4 +1,4 @@
-package com.yasin.rxjavalearn.BackgroundHeavyWorkWithRx
+package com.yasin.rxjavalearn.backgroundHeavyWorkWithRx
 
 import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.app.Activity

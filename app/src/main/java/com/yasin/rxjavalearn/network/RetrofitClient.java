@@ -1,4 +1,4 @@
-package com.yasin.rxjavalearn.Network;
+package com.yasin.rxjavalearn.network;
 
 import com.google.gson.Gson;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
